@@ -1,3 +1,3 @@
-# angular-ivy-kcsfqi
+# firebase-starter-project
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-kcsfqi)
+An angular firebase boilerplate for all mini projects.
