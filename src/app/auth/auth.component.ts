@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  faGoogle,
-  faGithub,
-  faFacebook,
-} from '@fortawesome/free-brands-svg-icons';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +7,12 @@ import {
   styles: [``],
 })
 export class AuthComponent {
-  faGoogle = faGoogle;
-  faGithub = faGithub;
-  faFacebook = faFacebook;
+  signin = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  });
+
+  onSubmit() {
+    console.log(this.signin);
+  }
 }

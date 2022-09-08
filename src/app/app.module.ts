@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  FontAwesomeModule,
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import {
+  faGoogle,
+  faGithub,
+  faFacebook,
+} from '@fortawesome/free-brands-svg-icons';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation.component';
@@ -21,11 +29,21 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbCollapseModule,
     RouterModule.forRoot(routes),
     FontAwesomeModule,
   ],
-  declarations: [AppComponent, NavigationComponent, MainComponent],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    MainComponent,
+    AuthComponent,
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faGoogle, faGithub, faFacebook);
+  }
+}
