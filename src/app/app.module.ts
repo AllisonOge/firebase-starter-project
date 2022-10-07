@@ -20,11 +20,16 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation.component';
 import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
+import { DataComponent } from './data/data.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: AuthComponent,
+  },
+  {
+    path: '',
+    component: DataComponent,
   },
 ];
 
@@ -54,6 +59,7 @@ const firebaseConfig = {
     NavigationComponent,
     MainComponent,
     AuthComponent,
+    DataComponent,
   ],
   bootstrap: [AppComponent],
 })
