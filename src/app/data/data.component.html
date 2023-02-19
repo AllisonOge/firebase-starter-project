@@ -1,35 +1,75 @@
 <div class="row">
-    <div class="col-12">
-        <div class="row">
-            <div class="col-3 col-md-2">family</div>
-            <div class="col-3 col-md-2">weight</div>
-            <div class="col-3 col-md-2">endangered</div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-3 col-md-2">
+        <h3 class="h3">Family</h3>
+        <select
+          name="family"
+          id="family"
+          class="form-select"
+          aria-label="filter by family"
+        >
+          <option selected>- Pick a Family -</option>
+          <option value="Mammals">Mammals</option>
+          <option value="Amphibians">Amphibians</option>
+          <option value="Reptiles">Reptiles</option>
+          <option value="Fish">Fish</option>
+          <option value="Birds">Birds</option>
+        </select>
+      </div>
+      <div class="col-3 col-md-2">
+        <h3 class="h3">Weight Greater Than</h3>
+        <input type="number" class="form-control" name="weightMoreThan" />
+      </div>
+      <div class="col-3 col-md-2">
+        <h3 class="h3">Endangered</h3>
+        <div class="form-check">
+          <input
+            type="checkbox"
+            name="endangered"
+            id="endangered"
+            class="form-check-input"
+          />
+          <label for="endangered" class="form-label">Endangered?</label>
         </div>
+      </div>
     </div>
-    <div class="col-12">
-        <div class="flex wrap">
-            <!-- <ng-container *ngIf="afs.collection('animals/').snapshotChanges() | async as animals$">
-                <pre>{{ animals$ | json}}</pre>
-                <p>data exists</p>
-            </ng-container> -->
-            <!-- <ng-container *ngFor="let animal of animals$">
-                <div class="datus">
-                    <div class="shadow-sm p-3">
-                        <span class="badge badge-pill p-2">{{animal.name}}</span>
-                        <br />
-                        <img class="img-fluid" [src]="animal.image" [alt]="animal.name">
-                        <br />
-                        <p class="small">{{animal.description}}</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item list-group-item-dark">Family: {{animal.family}}</li>
-                            <li class="list-group-item list-group-item-dark">Weight: {{animal.weight}}</li>
-                            <li class="list-group-item list-group-item-dark">Endangered: {{animal.endangered}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </ng-container> -->
-        </div>
-        <br />
-        <button class="btn btn-lg btn-dark">Add new animal</button>
+  </div>
+  <div class="col-12">
+    <br />
+    <button class="btn btn-lg btn-dark">Add new animal</button>
+    <br />
+    <div class="d-grid grid-template-column">
+      <ng-container *ngIf="animals$ | async as animals">
+        <ng-container *ngFor="let animal of animals">
+          <div class="datus">
+            <div class="shadow-sm p-3">
+              <span class="badge badge-pill p-2">{{ animal.name }}</span>
+              <br />
+              <div class="img-container">
+                <img
+                  class="img-fluid"
+                  [src]="animal.image"
+                  [alt]="animal.name"
+                />
+              </div>
+              <br />
+              <p class="small">{{ animal.description }}</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-dark">
+                  Family: {{ animal.family }}
+                </li>
+                <li class="list-group-item list-group-item-dark">
+                  Weight: {{ animal.weight }}
+                </li>
+                <li class="list-group-item list-group-item-dark">
+                  Endangered: {{ animal.endangered }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
     </div>
+  </div>
 </div>
