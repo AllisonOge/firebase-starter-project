@@ -97,5 +97,8 @@
       }
     }
   },
-  "defaultProject": "firebase-starter-app"
+  "defaultProject": "firebase-starter-app",
+  "cli": {
+    "analytics": "14d628c6-0dd2-4564-b5d0-768c29e23539"
+  }
 }
